@@ -1,0 +1,27 @@
+{
+  "name": "hash-game",
+  "version": "1.0.0",
+  "description": "Jogo da velha em javascript puro",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "~4.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stewones/hash-game.git"
+  },
+  "author": "Stewan Pacheco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stewones/hash-game/issues"
+  },
+  "homepage": "https://github.com/stewones/hash-game#readme",
+  "keywords": [
+    "javascript",
+    "jogo da velha",
+    "hash game"
+  ]
+}

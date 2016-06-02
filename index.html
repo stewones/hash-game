@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        body {
+            font-size: 14px;
+            font-family: Tahoma
+        }
+        
+        h1 {
+            text-align: center
+        }
+        
+        .game {
+            margin: 0 auto;
+            width: 300px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: center;
+        }
+        
+        .game input[name="opt"] {
+            width: 100px;
+            height: 100px
+        }
+        
+        .wins {
+            background: green;
+            color: #fff
+        }
+        
+        .gamer {
+            margin-top: 10px;
+        }
+    </style>
+    <title>Jogo da Velha</title>
+</head>
+
+<body>
+    <br /><br /><br /><br />
+    <h1>
+    Jogo da Velha
+    </h1>
+    <br>
+    <br>
+    <form class="game" name="game">
+        <div class="gamer">
+            Jogador 1:
+            <input type="text" name="X">
+        </div>
+        <div class="gamer">Jogador 2:
+            <input type="text" name="O">
+            <br>
+            <br>
+        </div>
+        <input type="button" name="opt" value="" onclick="process(0)">
+        <input type="button" name="opt" value="" onclick="process(1)">
+        <input type="button" name="opt" value="" onclick="process(2)">
+        <input type="button" name="opt" value="" onclick="process(3)">
+        <input type="button" name="opt" value="" onclick="process(4)">
+        <input type="button" name="opt" value="" onclick="process(5)">
+        <input type="button" name="opt" value="" onclick="process(6)">
+        <input type="button" name="opt" value="" onclick="process(7)">
+        <input type="button" name="opt" value="" onclick="process(8)">
+        <div>
+            <br>
+            <input type="button" value="COMEÇAR DENOVO" onclick="reboot()">
+        </div>
+        <small>
+            <br> <br> <br>
+            Desenvolvido por <a href="http://stpa.co">Stewan Pacheco</a>
+        </small>
+    </form>
+    <script type="text/javascript">
+        var clicks = 0;
+        var matrix = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+        ];
+
+        function process(pos) {
+        clicks++;
+        var type = (clicks % 2 === 0) ? "X" : "O";
+        document.game.opt[pos].value = type;
+        check(type);
+        }
+
+        function check(type) {
+        matrix.forEach(function(x) {
+            var count = 0;
+            x.forEach(function(y) {
+            if (document.game.opt[y] && document.game.opt[y].value === type)
+                count++;
+            });
+            if (count == 3) {
+            wins(x);
+            var person = (document.game[type].value || type);
+            alert('Parabéns ' + person + '!!! você ganhou!!!');
+            }
+        });
+        }
+
+        function wins(x) {
+        x.forEach(function(i) {
+            document.game.opt[i].className = 'wins';
+        });
+        }
+
+        function reboot() {
+        for (x = 0; x <= 8; x++) {
+            document.game.opt[x].value = '';
+            document.game.opt[x].className = '';
+        }
+        document.game.X.value = '';
+        document.game.O.value = '';
+        }
+    </script>
+</body>
+
+</html>
