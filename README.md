@@ -1,10 +1,10 @@
 # Jogo da Velha
 > Estudo em javascript puro do famoso jogo da velha
 
-## jsfiddle
+## Jsfiddle
 https://jsfiddle.net/stewones/a4kLnn9w/
 
-## rodando local
+## Rodando local
 ```
 $ npm install
 $ node server.js
